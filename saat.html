@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="eng" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title> DIJITAL SAAT</title>
+    <style>
+       *{ margin: 0;
+         padding: 0;
+         font-family: 'Poppins',sans-serif;
+       }
+       html,body{
+        display: grid;
+        height: 100%;
+        place-items:center;
+        background-color: black;
+       }
+       .baş{
+        height:100px;
+        width: 360px;
+        background:linear-gradient(135deg,#14ffe9,#ff00e0,#ff0e);
+        border-radius: 10px;
+        animation:animate 1s linear infinite; 
+       }
+       .baş .alt{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color:#1b1b1b;
+        border-radius: 6px;
+        height:85px ;
+          width: 345px;
+          text-align: center;
+        }
+        .baş .alt #saat{
+            line-height: 85px;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            letter-spacing: 1px;
+
+        }
+        @keyframes animate{
+            100%{
+                filter: hue-rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="baş">
+        <div class="alt">
+        <div id="saat">17:58:00</div>
+        </div>
+    </div>
+    <script>
+        function updateTime() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            var time = hours + ":" + minutes + ":" + seconds;
+            document.getElementById("saat").innerHTML = time;
+        }
+    
+        setInterval(updateTime, 1000);
+    
+    </script>
+    
+</body>
